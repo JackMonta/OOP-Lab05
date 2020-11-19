@@ -5,7 +5,6 @@ package it.unibo.oop.lab05.ex3;
  * 
  */
 public interface Product {
-
     /**
      * @return the product name
      */

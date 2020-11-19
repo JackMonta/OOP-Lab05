@@ -1,6 +1,9 @@
 package it.unibo.oop.lab05.ex1;
 
+import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
+
 
 /**
  * Example class using {@link Set}.
@@ -8,7 +11,9 @@ import java.util.Set;
  */
 public final class UseSet {
 
-    private UseSet() {
+
+	private UseSet() {
+    	
     }
 
     /**
@@ -34,5 +39,30 @@ public final class UseSet {
          * 
          * 6) Verifies if all the numbers left in the set are even
          */
+    	Set<String> mySet = new TreeSet<>();
+
+        for (int i = 1; i < 20; i++) {
+            mySet.add(Integer.toString(i));
+        }
+        System.out.println(mySet);
+
+        Iterator<String> iterator = mySet.iterator();
+
+        while (iterator.hasNext()) {
+            if (Integer.parseInt(iterator.next()) % 3 == 0)
+                iterator.remove();
+        }
+
+        for (String x : mySet) {
+            System.out.println(x);
+        }
+        
+        
+        final var set2 = new TreeSet<>();
+        for (int i = 2; i <= mySet.size(); i += 2) {
+            set2.add(Integer.toString(i));
+        }
+        System.out.println("Even elements: " + set2);
+        System.out.println(set2.containsAll(mySet));
     }
 }
